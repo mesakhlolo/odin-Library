@@ -8,23 +8,32 @@ function Book(title, author, pages, read) {
 }
 
 function render() {
-  let libraryEl = document.querySelector("#library");
+  const libraryEl = document.querySelector("#library");
   libraryEl.innerHTML = "";
-  for (i = 0; i < myLibrary.length; i++) {
-    let book = myLibrary[i];
-    let bookEl = document.createElement("div");
+  for (let i = 0; i < myLibrary.length; i++) {
+    const book = myLibrary[i];
+    const bookEl = document.createElement("div");
+    bookEl.setAttribute("class", "card");
     bookEl.innerHTML = `
-    <div class="card" style="width: 18rem">
       <div class="card-body">
-        <h5 class="card-title">By: ${book.title}</h5>
-        <h6 class="card-subtitle mb-2 text-body-secondary">${book.author}</h6>
+        <h5 class="card-title">${book.title}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">By: ${
+          book.author
+        }</h6>
         <p class="card-text">Pages: ${book.pages}</p>
         <p class="card-text">${book.read ? "Read" : "Not Read Yet"}</p>
+        <button class="btn btn-danger" onclick="removeBook(${i})">Remove</button>
       </div>
-    </div>
   `;
     libraryEl.appendChild(bookEl);
   }
+}
+
+// function to remove a book from library
+function removeBook(index) {
+  console.log(index);
+  myLibrary.splice(index, 1);
+  render();
 }
 
 function addBookToLibrary() {
@@ -38,6 +47,7 @@ function addBookToLibrary() {
   render();
 }
 
+// newBook button is clicked
 const newBookBtn = document.querySelector("#new-book-btn");
 
 newBookBtn.addEventListener("click", function () {
@@ -45,6 +55,7 @@ newBookBtn.addEventListener("click", function () {
   newBookForm.style.display = "block";
 });
 
+// addBook button is submited
 const newBookForm = document.querySelector("#new-book-form");
 
 newBookForm.addEventListener("submit", function (event) {

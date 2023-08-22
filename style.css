@@ -3,3 +3,7 @@
   margin: 0 auto; /* Center the container horizontally */
   display: none;
 }
+
+.card {
+  width: 18rem;
+}
