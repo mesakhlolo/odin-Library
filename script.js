@@ -32,7 +32,7 @@ function render() {
         <p class="card-text">Pages: ${book.pages}</p>
         <p class="card-text">${book.read ? "Read" : "Not Read Yet"}</p>
         <button class="btn btn-danger" onclick="removeBook(${i})">Remove</button>
-        <button class="btn btn-success" onclick="toggleRead(${i})">Toggle</button>
+        <button class="btn btn-success" onclick="toggleRead(${i})">Change Read Status</button>
       </div>
   `;
     libraryEl.appendChild(bookEl);
