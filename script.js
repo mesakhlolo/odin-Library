@@ -7,6 +7,7 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+// toggle read
 Book.prototype.toggleRead = function () {
   this.read = !this.read;
 };
@@ -16,6 +17,19 @@ function toggleRead(index) {
   render();
 }
 
+// add book to libary function
+function addBookToLibrary() {
+  const title = document.querySelector("#title").value;
+  const author = document.querySelector("#author").value;
+  const pages = document.querySelector("#pages").value;
+  const read = document.querySelector("#read").checked;
+
+  const newBook = new Book(title, author, pages, read);
+  myLibrary.push(newBook);
+  render();
+}
+
+// render function
 function render() {
   const libraryEl = document.querySelector("#library");
   libraryEl.innerHTML = "";
@@ -39,37 +53,28 @@ function render() {
   }
 }
 
+// addBook button is submited
+const newBookForm = document.querySelector("#new-book-form");
+
+newBookForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  // handle data from form
+  addBookToLibrary();
+
+  // Reset the form fields after submission
+  newBookForm.reset();
+});
+
+// reset form when user closed the form
+const modal = document.getElementById("newBookModal");
+modal.addEventListener("hidden.bs.modal", function () {
+  newBookForm.reset();
+});
+
 // function to remove a book from library
 function removeBook(index) {
   console.log(index);
   myLibrary.splice(index, 1);
   render();
 }
-
-function addBookToLibrary() {
-  const title = document.querySelector("#title").value;
-  const author = document.querySelector("#author").value;
-  const pages = document.querySelector("#pages").value;
-  const read = document.querySelector("#read").checked;
-
-  const newBook = new Book(title, author, pages, read);
-  myLibrary.push(newBook);
-  render();
-}
-
-// newBook button is clicked
-// const newBookBtn = document.querySelector("#new-book-btn");
-
-// newBookBtn.addEventListener("click", function () {
-//   const newBookForm = document.querySelector("#new-book-form");
-//   newBookForm.style.display = "block";
-// });
-
-// addBook button is submited
-const newBookForm = document.querySelector("#new-book-form");
-
-newBookForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  addBookToLibrary();
-  // newBookForm.style.display = "none";
-});
