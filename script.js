@@ -58,12 +58,12 @@ function addBookToLibrary() {
 }
 
 // newBook button is clicked
-const newBookBtn = document.querySelector("#new-book-btn");
+// const newBookBtn = document.querySelector("#new-book-btn");
 
-newBookBtn.addEventListener("click", function () {
-  const newBookForm = document.querySelector("#new-book-form");
-  newBookForm.style.display = "block";
-});
+// newBookBtn.addEventListener("click", function () {
+//   const newBookForm = document.querySelector("#new-book-form");
+//   newBookForm.style.display = "block";
+// });
 
 // addBook button is submited
 const newBookForm = document.querySelector("#new-book-form");
@@ -71,5 +71,5 @@ const newBookForm = document.querySelector("#new-book-form");
 newBookForm.addEventListener("submit", function (event) {
   event.preventDefault();
   addBookToLibrary();
-  newBookForm.style.display = "none";
+  // newBookForm.style.display = "none";
 });

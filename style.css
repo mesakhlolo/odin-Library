@@ -3,12 +3,6 @@
   margin-bottom: 2rem;
 }
 
-#new-book-form {
-  max-width: 400px; /* Adjust the value as needed */
-  margin: 0 auto; /* Center the container horizontally */
-  display: none;
-}
-
 #library {
   display: flex;
   justify-content: center;
