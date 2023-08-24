@@ -1,3 +1,8 @@
+#new-book-btn {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
 #new-book-form {
   max-width: 400px; /* Adjust the value as needed */
   margin: 0 auto; /* Center the container horizontally */

@@ -16,9 +16,7 @@
   </head>
   <body>
     <div class="container text-center">
-      <button id="new-book-btn" class="btn btn-primary mt-3 mb-3">
-        New Book
-      </button>
+      <button id="new-book-btn" class="btn btn-primary btn-lg">New Book</button>
 
       <form
         id="new-book-form"
@@ -43,7 +41,20 @@
         <input type="submit" value="Add Book" class="btn btn-success" />
       </form>
 
-      <div id="library"></div>
+      <div id="library">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Naruto</h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">
+              By: Masashi Kishimoto
+            </h6>
+            <p class="card-text">Pages: 100</p>
+            <p class="card-text">Not Read Yet</p>
+            <button class="btn btn-danger">Remove</button>
+            <button class="btn btn-success">Change Read Status</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- My Javascript -->
