@@ -55,21 +55,23 @@ function render() {
 
 // addBook button is submited
 const newBookForm = document.querySelector("#new-book-form");
+const modalElement = document.querySelector("#newBookModal"); // Get the modal element
+
+// Initialize the modal to be able to use modal.hide()
+const modal = new bootstrap.Modal(modalElement);
 
 newBookForm.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  // handle data from form
-  addBookToLibrary();
-
-  // Reset the form fields after submission
-  newBookForm.reset();
+  if (this.checkValidity()) {
+    addBookToLibrary();
+    modal.hide();
+  }
 });
 
-// reset form when user closed the form
-const modal = document.getElementById("newBookModal");
-modal.addEventListener("hidden.bs.modal", function () {
-  newBookForm.reset();
+// when the form (modal) was closed
+modalElement.addEventListener("hidden.bs.modal", function () {
+  newBookForm.reset(); // Reset the form
 });
 
 // function to remove a book from library
